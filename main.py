@@ -5,9 +5,22 @@ app = FastAPI()
 
 @app.get('/')
 def index():
-    return{"hello" : "world!"}
+    return{'data': 'blog list'}
 
 
-@app.get('/about')
-def about():
-    return {'data':'about page'}
+@app.get('/blog/unpublished')
+def unpublished_blog():
+    # fetch all unpublished blog
+    return {'data': 'all unpublished blogs'}
+
+
+@app.get('/blog/{id}')
+def show_blog(id: int):
+    # fetch blog with id = id
+    return {'data': id}
+
+
+@app.get('blog/{id}/comments')
+def comments(id):
+    # fetch comments of blog with id =id
+    return {'data': {'1', '2'}}

@@ -3,9 +3,11 @@ from pydantic.main import BaseModel
 
 app = FastAPI()
 
+
 class Blog(BaseModel):
     title:str
     body:str
+
 
 @app.post('/blog')
 def create(request:Blog):
